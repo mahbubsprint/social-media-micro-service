@@ -1,0 +1,24 @@
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-20T07:29:08.915Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-04-20T07:29:09.797Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-20T07:29:15.595Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-04-20T07:29:16.388Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-04-20T15:01:41.641Z"}
+{"level":"info","message":"Request body, [object Object]","service":"media-service","timestamp":"2025-04-20T15:01:41.643Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-04-20T15:01:41.669Z"}
+{"level":"info","message":"File details: name=Screenshot from 2024-11-25 21-49-23.png, type=image/png","service":"media-service","timestamp":"2025-04-20T15:01:41.675Z"}
+{"level":"info","message":"Uploading to cloudinary starting...","service":"media-service","timestamp":"2025-04-20T15:01:41.675Z"}
+{"level":"error","message":"Error creating media Must supply api_key","service":"media-service","stack":"Error: Must supply api_key\n    at ensureOption (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/utils/ensureOption.js:19:13)\n    at Object.sign_request (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/utils/index.js:1164:16)\n    at Object.process_request_params (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/utils/index.js:1214:22)\n    at call_api (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/uploader.js:474:18)\n    at Object.upload (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/uploader.js:53:10)\n    at Object.upload_stream (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/uploader.js:40:18)\n    at Object.upload_stream (/home/bjit/projects/Nodejs/social-media-microservice/media-service/node_modules/cloudinary/lib/utils/index.js:1411:21)\n    at /home/bjit/projects/Nodejs/social-media-microservice/media-service/src/utils/cloudinary.js:12:46\n    at new Promise (<anonymous>)\n    at uploadMediaToCloudinary (/home/bjit/projects/Nodejs/social-media-microservice/media-service/src/utils/cloudinary.js:11:10)","timestamp":"2025-04-20T15:01:41.679Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-20T15:10:39.064Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-04-20T15:10:40.163Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-04-20T15:10:45.159Z"}
+{"level":"info","message":"Request body, [object Object]","service":"media-service","timestamp":"2025-04-20T15:10:45.160Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-04-20T15:10:45.179Z"}
+{"level":"info","message":"File details: name=Screenshot from 2024-11-25 21-49-23.png, type=image/png","service":"media-service","timestamp":"2025-04-20T15:10:45.185Z"}
+{"level":"info","message":"Uploading to cloudinary starting...","service":"media-service","timestamp":"2025-04-20T15:10:45.186Z"}
+{"level":"info","message":"Cloudinary upload successfully. Public Id: - klr3g2n0mrbbfmduvuqg","service":"media-service","timestamp":"2025-04-20T15:10:52.275Z"}
+{"level":"info","message":"Received POST request to /api/media/upload","service":"media-service","timestamp":"2025-04-20T15:13:39.207Z"}
+{"level":"info","message":"Request body, [object Object]","service":"media-service","timestamp":"2025-04-20T15:13:39.208Z"}
+{"level":"info","message":"Starting media upload","service":"media-service","timestamp":"2025-04-20T15:13:39.215Z"}
+{"level":"info","message":"File details: name=Screenshot from 2024-11-25 21-49-23.png, type=image/png","service":"media-service","timestamp":"2025-04-20T15:13:39.217Z"}
+{"level":"info","message":"Uploading to cloudinary starting...","service":"media-service","timestamp":"2025-04-20T15:13:39.219Z"}
+{"level":"info","message":"Cloudinary upload successfully. Public Id: - j8psyfdritvz7cjuqhg9","service":"media-service","timestamp":"2025-04-20T15:13:44.517Z"}
