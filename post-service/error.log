@@ -1,0 +1,1 @@
+{"address":"127.0.0.1","code":"ECONNREFUSED","errno":-111,"level":"error","message":"Error connecting to rabbit mq connect ECONNREFUSED 127.0.0.1:5672","port":5672,"service":"post-service","stack":"Error: connect ECONNREFUSED 127.0.0.1:5672\n    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1495:16)","syscall":"connect","timestamp":"2025-04-11T14:57:38.201Z"}
