@@ -148,7 +148,7 @@ volumes:
   elasticsearch_data:
   media_uploads:
 
-# Networks list
+# Networks test
 networks:
   social-media-network:
     driver: bridge
