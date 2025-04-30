@@ -96,3 +96,27 @@
 {"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2025-04-26T17:58:55.144Z"}
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-26T17:58:55.145Z"}
 {"level":"info","message":"Login endpoint hit...","service":"identity-service","timestamp":"2025-04-26T17:58:55.145Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-28T02:24:10.021Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-28T02:24:11.091Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:36:49.561Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:36:54.520Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:37:01.582Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:37:25.238Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:37:27.405Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T07:37:29.229Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:35.847Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:40.293Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:42.002Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:45.284Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:47.727Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:52:54.285Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T08:53:02.154Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-29T09:05:59.136Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-29T09:05:59.137Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-29T09:05:59.146Z"}
+{"0":"\"","1":"e","10":"s","11":"t","12":" ","13":"b","14":"e","15":" ","16":"a","17":" ","18":"v","19":"a","2":"m","20":"l","21":"i","22":"d","23":" ","24":"e","25":"m","26":"a","27":"i","28":"l","3":"a","4":"i","5":"l","6":"\"","7":" ","8":"m","9":"u","level":"warn","message":"Validation error","service":"identity-service","timestamp":"2025-04-29T09:05:59.153Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-29T09:06:12.503Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-29T09:06:12.504Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-29T09:06:12.509Z"}
+{"buffer":{"data":[104,16,150,132,207,48,16,74,174,138,46,66],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-29T09:06:12.921Z"}
+{"level":"info","message":"Identity service running on port 3001","service":"identity-service","timestamp":"2025-04-29T11:17:46.426Z"}

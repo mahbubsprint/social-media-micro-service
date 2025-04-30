@@ -8,16 +8,16 @@ const errorHandler = require("./middleware/errorHandler");
 const logger = require("./utils/logger");
 const { connectToRabbitMQ, consumeEvent } = require("./utils/rabbitmq");
 const { handlePostDeleted } = require("./eventHandlers/media-event-handlers");
-
+const connectDB = require("./db");
 const app = express();
 const PORT = process.env.PORT || 3003;
 
 //connect to mongodb
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => logger.info("Connected to mongodb"))
-  .catch((e) => logger.error("Mongo connection error", e));
-
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => logger.info("Connected to mongodb"))
+//   .catch((e) => logger.error("Mongo connection error", e));
+connectDB();
 app.use(cors());
 app.use(helmet());
 app.use(express.json());

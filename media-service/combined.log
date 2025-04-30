@@ -159,3 +159,13 @@
 {"0":"j","1":"o","10":"1","11":"6","12":"s","13":"b","14":"k","15":"r","16":"g","17":"1","18":"h","19":"u","2":"h","3":"x","4":"i","5":"x","6":"u","7":"w","8":"f","9":"v","level":"info","message":"Media deleted successfuly from cloud stroage","service":"media-service","timestamp":"2025-04-26T17:07:00.369Z"}
 {"level":"info","message":"Deleted media 680d1264254bf3f015946baa associated with this deleted post 680d1282b97638be562bb3fd","service":"media-service","timestamp":"2025-04-26T17:07:00.434Z"}
 {"level":"info","message":"Processed deletion of media for post id 680d1282b97638be562bb3fd","service":"media-service","timestamp":"2025-04-26T17:07:00.434Z"}
+{"level":"info","message":"Connected to rabbit mq","service":"media-service","timestamp":"2025-04-28T02:24:09.993Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"media-service","timestamp":"2025-04-28T02:24:09.998Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-28T02:24:10.000Z"}
+{"level":"info","message":"Connected to mongodb","service":"media-service","timestamp":"2025-04-28T02:24:11.087Z"}
+{"level":"info","message":"Connected to rabbit mq","service":"media-service","timestamp":"2025-04-29T08:59:53.947Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"media-service","timestamp":"2025-04-29T08:59:53.963Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-29T08:59:53.966Z"}
+{"level":"info","message":"Connected to rabbit mq","service":"media-service","timestamp":"2025-04-29T11:17:46.506Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"media-service","timestamp":"2025-04-29T11:17:46.512Z"}
+{"level":"info","message":"Media service running on port 3003","service":"media-service","timestamp":"2025-04-29T11:17:46.514Z"}

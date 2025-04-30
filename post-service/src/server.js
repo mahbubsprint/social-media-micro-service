@@ -8,16 +8,17 @@ const postRoutes = require("./routes/post-routes");
 const errorHandler = require("./middleware/errorHandler");
 const logger = require("./utils/logger");
 const { connectToRabbitMQ } = require("./utils/rabbitmq");
+const connectDB = require("./db");
 
 const app = express();
 const PORT = process.env.PORT || 3002;
 
 //connect to mongodb
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => logger.info("Connected to mongodb"))
-  .catch((e) => logger.error("Mongo connection error", e));
-
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => logger.info("Connected to mongodb"))
+//   .catch((e) => logger.error("Mongo connection error", e));
+connectDB();
 const redisClient = new Redis(process.env.REDIS_URL);
 
 //middleware

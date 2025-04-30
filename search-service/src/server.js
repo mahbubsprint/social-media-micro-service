@@ -12,16 +12,17 @@ const {
   handlePostCreated,
   handlePostDeleted,
 } = require("./eventHandlers/search-event-handlers");
+const connectDB = require("./db");
 
 const app = express();
 const PORT = process.env.PORT || 3004;
 
 //connect to mongodb
-mongoose
-  .connect(process.env.MONGODB_URI)
-  .then(() => logger.info("Connected to mongodb"))
-  .catch((e) => logger.error("Mongo connection error", e));
-
+// mongoose
+//   .connect(process.env.MONGODB_URI)
+//   .then(() => logger.info("Connected to mongodb"))
+//   .catch((e) => logger.error("Mongo connection error", e));
+connectDB();
 const redisClient = new Redis(process.env.REDIS_URL);
 
 //middleware

@@ -1,0 +1,75 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root1234
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - social-media-network
+  redis:
+    image: redis:7
+    container_name: redis
+    command: ["redis-server", "--requirepass", "admin1234"]  # Secure Redis with a password
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    networks:
+      - social-media-network
+  api-gateway:
+    build: ./api-gateway
+    ports:
+      - "3000:3000"
+    networks:
+      - social-media-network
+    env_file:
+      - ./api-gateway/.env
+
+  identity-service:
+    build: ./identity-service
+    ports:
+      - "3001:3001"
+    networks:
+      - social-media-network
+    env_file:
+      - ./identity-service/.env
+
+  post-service:
+    build: ./post-service
+    ports:
+      - "3002:3002"
+    networks:
+      - social-media-network
+    env_file:
+      - ./post-service/.env
+
+  media-service:
+    build: ./media-service
+    ports:
+      - "3003:3003"
+    networks:
+      - social-media-network
+    env_file:
+      - ./media-service/.env
+
+  search-service:
+    build: ./search-service
+    ports:
+      - "3004:3004"
+    networks:
+      - social-media-network
+    env_file:
+      - ./search-service/.env
+
+networks:
+  social-media-network:
+    driver: bridge
+    external: true
+volumes:
+  mongo-data:
+  redis-data:

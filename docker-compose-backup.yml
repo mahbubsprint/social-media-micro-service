@@ -1,0 +1,154 @@
+version: '3.8'
+
+services:
+  # Infrastructure Services
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root1234
+    networks:
+      - social-media-network
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - social-media-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin1234
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - social-media-network
+
+  # Application Services
+  api-gateway:
+    build:
+      context: ./api-gateway
+      dockerfile: Dockerfile
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - IDENTITY_SERVICE_URL=http://identity-service:3001
+      - POST_SERVICE_URL=http://post-service:3002
+      - MEDIA_SERVICE_URL=http://media-service:3003
+      - SEARCH_SERVICE_URL=http://search-service:3004
+    depends_on:
+      - identity-service
+      - post-service
+      - media-service
+      - search-service
+    networks:
+      - social-media-network
+
+  identity-service:
+    build:
+      context: ./identity-service
+      dockerfile: Dockerfile
+    container_name: identity-service
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://root:root1234@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:admin1234@rabbitmq
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      - mongodb
+      - redis
+      - rabbitmq
+    networks:
+      - social-media-network
+
+  post-service:
+    build:
+      context: ./post-service
+      dockerfile: Dockerfile
+    container_name: post-service
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://root:root1234@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:admin1234@rabbitmq
+      - MEDIA_SERVICE_URL=http://media-service:3003
+    depends_on:
+      - mongodb
+      - redis
+      - rabbitmq
+    networks:
+      - social-media-network
+
+  media-service:
+    build:
+      context: ./media-service
+      dockerfile: Dockerfile
+    container_name: media-service
+    ports:
+      - "3003:3003"
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://root:root1234@mongodb:27017
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:admin1234@rabbitmq
+      - UPLOAD_DIR=/uploads
+    volumes:
+      - media_uploads:/uploads
+    depends_on:
+      - mongodb
+      - redis
+      - rabbitmq
+    networks:
+      - social-media-network
+
+  search-service:
+    build:
+      context: ./search-service
+      dockerfile: Dockerfile
+    container_name: search-service
+    ports:
+      - "3004:3004"
+    environment:
+      - NODE_ENV=development
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://admin:password@rabbitmq
+    depends_on:
+      - redis
+      - rabbitmq
+    networks:
+      - social-media-network
+
+# Volumes
+volumes:
+  mongodb_data:
+  redis_data:
+  rabbitmq_data:
+  elasticsearch_data:
+  media_uploads:
+
+# Networks
+networks:
+  social-media-network:
+    driver: bridge

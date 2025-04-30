@@ -14,3 +14,16 @@
 {"level":"info","message":"Received GET request to /api/search/posts?query=%22First%22","service":"post-service","timestamp":"2025-04-26T18:05:42.614Z"}
 {"level":"info","message":"Request body, [object Object]","service":"post-service","timestamp":"2025-04-26T18:05:42.614Z"}
 {"level":"info","message":"Search endpoint hit!","service":"post-service","timestamp":"2025-04-26T18:05:42.614Z"}
+{"code":"EIO","errno":-5,"level":"error","message":"Error connecting to rabbit mq EIO: i/o error, write","service":"post-service","stack":"Error: EIO: i/o error, write\n    at writeSync (node:fs:936:3)\n    at SyncWriteStream._write (node:internal/fs/sync_write_stream:26:3)\n    at writeOrBuffer (node:internal/streams/writable:392:12)\n    at _write (node:internal/streams/writable:333:10)\n    at Writable.write (node:internal/streams/writable:337:10)\n    at Console.log (/home/bjit/projects/Nodejs/social-media-microservice/search-service/node_modules/winston/lib/winston/transports/console.js:87:23)\n    at Console._write (/home/bjit/projects/Nodejs/social-media-microservice/search-service/node_modules/winston-transport/modern.js:103:17)\n    at doWrite (/home/bjit/projects/Nodejs/social-media-microservice/search-service/node_modules/readable-stream/lib/_stream_writable.js:390:139)\n    at writeOrBuffer (/home/bjit/projects/Nodejs/social-media-microservice/search-service/node_modules/readable-stream/lib/_stream_writable.js:381:5)\n    at Writable.write (/home/bjit/projects/Nodejs/social-media-microservice/search-service/node_modules/readable-stream/lib/_stream_writable.js:302:11)","syscall":"write","timestamp":"2025-04-28T02:24:09.574Z"}
+{"level":"info","message":"Subscribed to event: post.created","service":"post-service","timestamp":"2025-04-28T02:24:09.594Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"post-service","timestamp":"2025-04-28T02:24:09.607Z"}
+{"level":"info","message":"Search service is running on port: 3004","service":"post-service","timestamp":"2025-04-28T02:24:09.612Z"}
+{"level":"info","message":"Connected to mongodb","service":"post-service","timestamp":"2025-04-28T02:24:11.087Z"}
+{"level":"info","message":"Connected to rabbit mq","service":"post-service","timestamp":"2025-04-29T09:00:34.806Z"}
+{"level":"info","message":"Subscribed to event: post.created","service":"post-service","timestamp":"2025-04-29T09:00:34.820Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"post-service","timestamp":"2025-04-29T09:00:34.832Z"}
+{"level":"info","message":"Search service is running on port: 3004","service":"post-service","timestamp":"2025-04-29T09:00:34.836Z"}
+{"level":"info","message":"Connected to rabbit mq","service":"post-service","timestamp":"2025-04-29T11:17:46.429Z"}
+{"level":"info","message":"Subscribed to event: post.created","service":"post-service","timestamp":"2025-04-29T11:17:46.440Z"}
+{"level":"info","message":"Subscribed to event: post.deleted","service":"post-service","timestamp":"2025-04-29T11:17:46.445Z"}
+{"level":"info","message":"Search service is running on port: 3004","service":"post-service","timestamp":"2025-04-29T11:17:46.447Z"}
