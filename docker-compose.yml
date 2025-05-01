@@ -21,10 +21,34 @@ services:
       - redis-data:/data
     networks:
       - social-media-network
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5673:5672"     # AMQP
+      - "15673:15672"   # Management UI
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin1234
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    networks:
+      - social-media-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "status"]
+      interval: 5s
+      retries: 5
+      start_period: 10s
+      timeout: 10s
   api-gateway:
     build: ./api-gateway
     ports:
       - "3000:3000"
+    depends_on:
+      - identity-service
+      - post-service
+      - media-service
+      - search-service
     networks:
       - social-media-network
     env_file:
@@ -34,6 +58,10 @@ services:
     build: ./identity-service
     ports:
       - "3001:3001"
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
     networks:
       - social-media-network
     env_file:
@@ -43,6 +71,13 @@ services:
     build: ./post-service
     ports:
       - "3002:3002"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+      redis:
+        condition: service_started
     networks:
       - social-media-network
     env_file:
@@ -52,6 +87,14 @@ services:
     build: ./media-service
     ports:
       - "3003:3003"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+      redis:
+        condition: service_started
+
     networks:
       - social-media-network
     env_file:
@@ -61,6 +104,13 @@ services:
     build: ./search-service
     ports:
       - "3004:3004"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      mongo:
+        condition: service_started
+      redis:
+        condition: service_started
     networks:
       - social-media-network
     env_file:
@@ -73,3 +123,4 @@ networks:
 volumes:
   mongo-data:
   redis-data:
+  rabbitmq_data:
