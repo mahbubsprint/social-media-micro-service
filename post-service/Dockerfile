@@ -13,7 +13,8 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port the service runs on
+# Expose the port the service runs on 3002
+# Note: Ensure this port matches the one used in your application
 EXPOSE 3002
 
 # Command to run the application

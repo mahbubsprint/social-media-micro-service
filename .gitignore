@@ -1,0 +1,38 @@
+# Node.js
+node_modules/
+
+# Docker
+docker-compose.override.yml
+.dockerignore
+Dockerfile
+*.log
+
+# Environment files
+*.env
+.env.*  # Exclude all environment files for all services
+
+# Logs
+*.log
+logs/
+*.gz
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Editor config
+.vscode/
+.idea/
+
+# NPM package lock
+package-lock.json
+yarn.lock
+
+# Build artifacts
+dist/
+build/
+
+# Temporary files
+tmp/
+# Ignore bind mount data (e.g. DB, uploads)
+data/

@@ -9,7 +9,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root1234
     restart: unless-stopped
     volumes:
-      - mongo-data:/data/db
+      - ./data/mongo:/data/db
     networks:
       - social-media-network
   redis:
@@ -18,7 +18,7 @@ services:
     command: ["redis-server", "--requirepass", "admin1234"]  # Secure Redis with a password
     restart: unless-stopped
     volumes:
-      - redis-data:/data
+      - ./data/redis:/data
     networks:
       - social-media-network
   rabbitmq:
@@ -31,7 +31,7 @@ services:
       RABBITMQ_DEFAULT_USER: admin
       RABBITMQ_DEFAULT_PASS: admin1234
     volumes:
-      - rabbitmq_data:/var/lib/rabbitmq
+      - ./data/rabbitmq:/var/lib/rabbitmq
     networks:
       - social-media-network
     healthcheck:
