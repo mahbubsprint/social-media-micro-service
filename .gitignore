@@ -10,7 +10,7 @@ Dockerfile
 # Environment files
 *.env
 .env.*  # Exclude all environment files for all services
-
+**/.env
 # Logs
 *.log
 logs/
